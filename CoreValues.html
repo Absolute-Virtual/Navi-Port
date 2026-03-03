@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Core Values | Naviport</title>
+
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #020E4C;
+        }
+
+        header {
+            width: 100%;
+            height: 85px;
+            background-color: #020E4C;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3%;
+            z-index: 100;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .brand-container img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .academy-name {
+            color: #ffc004;
+            font-size: 14px;
+            border-bottom: 1px solid #FFB11A;
+            padding-bottom: 2px;
+        }
+
+        .naviport-name {
+            color: #FFB11A;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        main {
+            padding-top: 120px;
+        }
+
+        .core-values-section {
+            padding: 40px 8% 80px 8%;
+            min-height: 100vh;
+        }
+
+        .core-title {
+            text-align: center;
+            color: #FFB11A;
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+
+        .core-values-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .core-box {
+            background-color: #01082d;
+            color: #FFB11A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+            min-height: 120px;
+            width: 100%;
+            position: relative;
+        }
+
+        .core-box:hover {
+            background-color: #1a1a5a;
+            box-shadow: 0 0 15px #FFB11A70;
+            transform: translateY(-5px);
+        }
+
+        .dropbox {
+            margin-top: 10px;
+            background-color: #020E4C;
+            color: #FFB11A;
+            padding: 0;
+            border-radius: 8px;
+            font-weight: normal;
+            font-size: 0.95rem;
+            text-align: left;
+            line-height: 1.4;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        .dropbox.active {
+            max-height: 500px;
+            padding: 12px;
+            animation: bounce 0.3s ease;
+        }
+
+        @keyframes bounce {
+            0% { transform: scaleY(0.8); }
+            50% { transform: scaleY(1.05); }
+            100% { transform: scaleY(1); }
+        }
+
+        @media screen and (max-width: 900px) {
+            .core-values-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .core-values-container {
+                grid-template-columns: 1fr;
+            }
+
+            .core-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #01082d;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="#" class="brand-container">
+        <img src="JCA.png" alt="JCA Logo">
+        <div class="title-group">
+            <span class="academy-name">JCSGO Christian Academy</span>
+            <span class="naviport-name">JCA Naviport</span>
+        </div>
+    </a>
+</header>
+
+<main>
+    <section class="core-values-section">
+        <h1 class="core-title">JCSGO Christian Academy's Core Values</h1>
+        <div class="core-values-container">
+            <div class="core-box" data-key="love">Love</div>
+            <div class="core-box" data-key="godliness">Godliness</div>
+            <div class="core-box" data-key="integrity">Integrity</div>
+            <div class="core-box" data-key="respect">Respect</div>
+            <div class="core-box" data-key="responsibility">Responsibility</div>
+            <div class="core-box" data-key="resourcefulness">Resourcefulness</div>
+            <div class="core-box" data-key="flexibility">Flexibility</div>
+            <div class="core-box" data-key="commitment to excellence">Commitment to Excellence</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 JCSGO Christian Academy. All rights reserved.
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const explanations = {
+        love: "JCA abides in fulfilling God's greatest commandment which is to love God and to love one another. We love God first, then we love others by considering the different love languages of individuals.",
+        godliness: "We give utmost reverence to God by acknowledging Him above all things, living a holy life, and demonstrating a Christ-like character. We possess the fruits of the Holy Spirit (Galatians 5:22-23).",
+        integrity: "We uphold honesty, fairness, and equality. We are committed to pursue truth in words and deeds according to God's word.",
+        respect: "We are a community that recognizes and responds to diverse cultural backgrounds. We foster camaraderie, strong family ties, and caring relationships.",
+        responsibility: "We are passionate about servant leadership. Our endeavors are service-oriented and aimed for the greater common good.",
+        resourcefulness: "We recognize God as the source of everything. We practice creativity, innovation, and sustainability as faithful stewards.",
+        flexibility: "We are exceedingly capable of adapting to changing circumstances and coping with them effectively and efficiently. Positivity is exemplified in every situation.",
+        "commitment to excellence": "We are highly pursuant of the best practices in our professions. We continually aspire for progressive learning and opportunities for education significant to personal growth, community development and nation transformation, all for the glory of God."
+    };
+
+    const boxes = document.querySelectorAll(".core-box");
+
+    boxes.forEach(box => {
+        const drop = document.createElement("div");
+        drop.classList.add("dropbox");
+        drop.textContent = explanations[box.dataset.key] || "No explanation available.";
+        box.appendChild(drop);
+
+        box.addEventListener("click", function () {
+            boxes.forEach(b => {
+                if (b !== box) {
+                    b.querySelector(".dropbox").classList.remove("active");
+                }
+            });
+
+            drop.classList.toggle("active");
+            drop.scrollIntoView({ behavior: "smooth", block: "end" });
+        });
+    });
+});
+</script>
+
+</body>
+</html>
