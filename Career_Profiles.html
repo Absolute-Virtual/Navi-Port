@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>In-Depth Career Profile | Naviport</title>
+    <style>
+        
+        @keyframes reveal {
+            from { 
+                opacity: 0; 
+                transform: translateY(10px);; 
+            }
+
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .animate-fade {
+            opacity: 0; 
+            animation: reveal 0.8s ease-out forwards;
+            will-change: transform, opacity;
+        }
+
+
+        header { 
+            animation-delay: 0.1s; 
+        }
+
+        .hero-section h1 { 
+            animation-delay: 0.3s; 
+        }
+
+        .hero-section p { 
+            animation-delay: 0.5s; 
+        }
+
+        .hero-btns { 
+            animation-delay: 0.7s; 
+        }
+
+        .services-bar { 
+            animation-delay: 0.9s; 
+        }
+
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #FFFFFF; 
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            height: 85px;
+            background-color: #020E4C;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3%;
+            z-index: 100;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .brand-container img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .academy-name {
+            color: #ffc004;
+            font-size: 14px;
+            border-bottom: 1px solid #FFB11A;
+            padding-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .naviport-name {
+            color: #FFB11A;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .deactivated-location {
+            color: #FFB11A;
+            border: solid 2px #FFB11A;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background-color: transparent;
+            display: inline-block;
+        }
+
+        .deactivated-location:hover {
+            background-color: #FFB11A;
+            border: solid 2px #020E4C;
+            color: white;
+            box-shadow: 4px 4px 0px #FFB11A, -4px 4px 0px #FFB11A, 4px -4px 0px #FFB11A, -4px -4px 0px #FFB11A;
+            transform: translateY(-2px);
+        }
+
+        .mainbuttons {
+            color: #Ffffff;
+            border: solid 2px #FFB11A;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background-color: transparent;
+            display: inline-block;
+        }
+
+        .mainbuttons:hover {
+            background-color: #FFB11A;
+            border: solid 2px #ffffff;
+            color: white;
+            box-shadow: 4px 4px 0px #FFB11A, -4px 4px 0px #FFB11A, 4px -4px 0px #FFB11A, -4px -4px 0px #FFB11A;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 101;
+            padding: 5px;
+        }
+
+        .hamburger div {
+            width: 28px;
+            height: 3px;
+            background-color: #FFB11A;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .hamburger.toggle .line1 { 
+            transform: rotate(-45deg) translate(-5px, 6px); 
+        }
+
+        .hamburger.toggle .line2 { 
+            opacity: 0; 
+        }
+
+        .hamburger.toggle .line3 { 
+            transform: rotate(45deg) translate(-6px, -7px); 
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: 0; 
+            width: 280px;
+            height: 100vh;
+            background-color: #020E4C;
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px;
+            z-index: 99;
+            box-shadow: -10px 0 20px rgba(0,0,0,0.4);
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .nav-links.open { 
+            transform: translateX(0); 
+        }
+
+        .nav-links .categ {
+            color: #FFB11A;
+            padding: 20px 40px;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-links .categ:hover {
+            background-color: #FFB11A;
+            color: #020E4C;
+            padding-left: 60px;
+        }
+
+        .mobile-auth {
+            display: none;
+            padding: 0 40px 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-auth .deactivated-location {
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        main {
+            margin-top: 120px;
+            padding: 20px 5%;
+            min-height: calc(100vh - 160px);
+        }
+
+        .career-title {
+            color: #020E4C;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .track-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .track-card {
+            background-color: #020E4C;
+            border: 2px solid #FFB11A;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s ease;
+        }
+
+        .track-card:hover {
+            transform: translateY(-5px);
+            background-color: #FFB11A;
+            color: #ffffff;
+            border: solid 3px #ffffff;
+            box-shadow: 6px 6px 0px #FFB11A, -6px 6px 0px #FFB11A, 6px -6px 0px #FFB11A, -6px -6px 0px #FFB11A;
+        }
+
+        .track-card:hover h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #FFffff;
+        }
+
+        .track-card h2 {
+            color: #FFB11A;
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #FFB11A;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .track-card p {
+            color: #FFFFFF;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .right-nav .deactivated-location { 
+                display: none; 
+            }
+
+            .mobile-auth { 
+                display: block; 
+            }
+
+            .academy-name { 
+                font-size: 12px; 
+            }
+
+            .naviport-name { 
+                font-size: 14px; 
+            }
+
+            .brand-container { 
+                gap: 10px; 
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #01082d;
+            color: #666;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="animate-fade">
+        <a href="Home.html" class="brand-container">
+            <img src="JCA.png" alt="JCA Logo">
+            <div class="title-group">
+                <span class="academy-name">JCSGO Christian Academy</span>
+                <span class="naviport-name">JCA Naviport</span>
+            </div>
+        </a>
+
+        <div class="right-nav">
+            <a href="#" class="deactivated-location">Log In</a>
+            <a href="#" class="deactivated-location">Sign Up</a>
+
+            <button class="hamburger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </button>
+        </div>
+
+        <nav class="nav-links" id="menu">
+            <div class="mobile-auth">
+                <a href="#" class="deactivated-location">Log In</a>
+                <a href="#" class="deactivated-location">Sign Up</a>
+            </div>
+            <a href="#" class="categ">HOME</a>
+            <a href="#" class="categ">CONTACTS</a>
+            <a href="#" class="categ">ABOUT US</a>
+        </nav>
+    </header>
+
+    <main class="animate-fade">
+        <h1 class="career-title">Career Professions in the Philippines</h1>
+        
+        <div class="track-container">
+            <div class="track-card">
+                <h2>Academic Track</h2>
+                <p>Professional & Degree-based Careers</p>
+            </div>
+
+            <div class="track-card">
+                <h2>Technical Professional Track</h2>
+                <p>Skilled & Technical Careers</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 JCSGO Christian Academy. All rights reserved.
+    </footer>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('menu');
+
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            burger.classList.toggle('toggle');
+        });
+
+        document.querySelectorAll('.categ').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                burger.classList.remove('toggle');
+            });
+        });
+    </script>
+</body>
+</html>
